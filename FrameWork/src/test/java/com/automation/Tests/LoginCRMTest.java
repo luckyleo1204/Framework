@@ -15,13 +15,13 @@ import com.automation.utility.BrowserFactory;
 import com.automation.utility.Helper;
 
 public class LoginCRMTest  extends BaseClass{
-	WebDriver driver;
+	LoginPage lp;
 	
 	@Test
 	public void loginApp() 
 	{
 		logger =report.createTest("loginApp");
-		LoginPage lp=PageFactory.initElements(driver, LoginPage.class);
+		 lp=PageFactory.initElements(driver, LoginPage.class);
 		logger.info("Starting application");
 		
 		lp.login(excel.getStringData(0, 0, 0),excel.getStringData(0, 0, 1));

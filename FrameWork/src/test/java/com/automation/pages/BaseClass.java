@@ -10,6 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import com.automation.utility.BrowserFactory;
 import com.automation.utility.ConfigDataProvider;
@@ -21,7 +22,7 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 public class BaseClass {
-	public static WebDriver driver;
+	public  WebDriver driver;
 	public ExcelDataProvider excel;
 	public ConfigDataProvider config;
 	public ExtentReports report;
@@ -39,11 +40,13 @@ public class BaseClass {
 		Reporter.log("Setting setup is done", true);
 	}
 	
+	@Parameters({"browser","Appurl"})
 	@BeforeClass
-	public void setup()
+	public void setup(String browser,String Appurl)
 	{
 		Reporter.log("Trying to start browser and application ready",true);
-		driver=BrowserFactory.startApp(driver, config.getBrowser(), config.getStagingURL());
+		//driver=BrowserFactory.startApp(driver, config.getBrowser(), config.getStagingURL());
+		driver=BrowserFactory.startApp(driver, browser, Appurl);
 		Reporter.log("Browser and application setup is done",true);
 
 	}
