@@ -23,6 +23,7 @@ public class LoginCRMTest  extends BaseClass{
 		logger =report.createTest("loginApp");
 		 lp=PageFactory.initElements(driver, LoginPage.class);
 		logger.info("Starting application");
+		logger.info("This is test");
 		
 		lp.login(excel.getStringData(0, 0, 0),excel.getStringData(0, 0, 1));
 		logger.fail("Test Failed");
