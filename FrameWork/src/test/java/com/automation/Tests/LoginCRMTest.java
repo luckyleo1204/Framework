@@ -21,12 +21,12 @@ public class LoginCRMTest  extends BaseClass{
 	public void loginApp() 
 	{
 		logger =report.createTest("loginApp");
-		 lp=PageFactory.initElements(driver, LoginPage.class);
+		 lp=new LoginPage(driver);
 		logger.info("Starting application");
 		logger.info("Test user webhook");
 		System.out.println("logger.info");
 		lp.login(excel.getStringData(0, 0, 0),excel.getStringData(0, 0, 1));
-		logger.fail("Test Failed");
+		
 		
 	}
 	
